@@ -8,11 +8,15 @@ package com.juara.moviedblatihan.service;
 
 import com.juara.moviedblatihan.model.SuccessPost.SuccessPost;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 
 /**
@@ -69,25 +73,25 @@ public interface APIInterfacesRest {
             @Part MultipartBody.Part img1,
            @Part MultipartBody.Part img2,
            @Part MultipartBody.Part img3,
- *//*
+ */
 
    @Multipart
-   @POST("api/dataorder/update")
-   Call<Komplain> updateData(
+   @POST("moviedb/add")
+   Call<SuccessPost> sendDataWithImage(
 
-           @Part("pod_date") RequestBody podate,
-           @Part("status") RequestBody status,
-           @Part("lat") RequestBody lat,
-           @Part("lon") RequestBody lon,
-           @Part("poddate") RequestBody poddate,
-           @Part("recievedate") RequestBody recievedate,
-           @Part("id") RequestBody id,
-           @Part MultipartBody.Part img1
+           @Part("judul") RequestBody judul,
+           @Part("rating") RequestBody rating,
+           @Part("genre") RequestBody genre,
+           @Part("directedby") RequestBody directedby,
+           @Part("writenby") RequestBody writenby,
+           @Part("intheater") RequestBody intheater,
+           @Part("studio") RequestBody studio,
+           @Part MultipartBody.Part image1
 
 
    );
 
-
+/*
    @Multipart
    @POST("api/komplain/update")
    Call<UpdateKomplain> sendImage(
